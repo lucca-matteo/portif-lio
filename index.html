@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lucca Matteo | Portfólio</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:#020617;
+color:#e2e8f0;
+}
+
+/* NAVBAR */
+nav{
+width:100%;
+padding:25px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+top:0;
+z-index:1000;
+background:rgba(2,6,23,.95);
+backdrop-filter:blur(10px);
+border-bottom:1px solid #0f172a;
+}
+
+.logo{
+width:55px;
+height:55px;
+border:1px solid #38bdf8;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#38bdf8;
+font-size:26px;
+font-weight:bold;
+}
+
+nav ul{
+display:flex;
+gap:45px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#94a3b8;
+font-size:18px;
+}
+
+nav ul li a:hover{
+color:#38bdf8;
+}
+
+.btn-nav{
+padding:14px 30px;
+border-radius:30px;
+background:#38bdf8;
+color:#000;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* HERO */
+.hero{
+min-height:100vh;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:50px;
+padding:140px 8% 80px;
+}
+
+.hero-text h1{
+font-size:58px;
+line-height:1.1;
+margin-bottom:20px;
+}
+
+.hero-text h1 span{
+color:#38bdf8;
+}
+
+.hero-text p{
+color:#cbd5e1;
+font-size:22px;
+line-height:1.8;
+margin-bottom:35px;
+max-width:700px;
+}
+
+.hero-btn{
+display:inline-block;
+padding:18px 35px;
+background:#38bdf8;
+color:#000;
+border-radius:35px;
+text-decoration:none;
+font-weight:bold;
+font-size:18px;
+}
+
+.hero-img{
+display:flex;
+justify-content:center;
+}
+
+.hero-img img{
+width:420px;
+height:420px;
+object-fit:cover;
+border-radius:50%;
+border:4px solid #38bdf8;
+box-shadow:0 0 35px rgba(56,189,248,.2);
+}
+
+/* TITULOS */
+.title{
+font-size:58px;
+margin-bottom:10px;
+}
+
+.title span{
+color:#38bdf8;
+}
+
+/* SECTION */
+section{
+padding:90px 8%;
+}
+
+/* ESPECIALIDADES */
+.skills{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:30px;
+align-items:start;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:#0f172a;
+padding:35px;
+border-radius:22px;
+border:1px solid #1e293b;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+border-color:#38bdf8;
+}
+
+.card h3{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.card p{
+color:#cbd5e1;
+line-height:1.8;
+font-size:18px;
+}
+
+/* CARD CLICAVEL */
+.card-click{
+cursor:pointer;
+}
+
+.ver-btn{
+margin-top:15px;
+display:inline-block;
+padding:10px 20px;
+background:#38bdf8;
+color:#000;
+font-weight:bold;
+border-radius:30px;
+font-size:14px;
+}
+
+/* MODAL */
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+z-index:9999;
+padding:20px;
+}
+
+.modal-box{
+background:#0f172a;
+padding:30px;
+border-radius:20px;
+max-width:1100px;
+width:100%;
+border:1px solid #38bdf8;
+}
+
+.fechar{
+float:right;
+font-size:30px;
+cursor:pointer;
+color:#38bdf8;
+}
+
+.modal-box h2{
+font-size:35px;
+margin-bottom:25px;
+}
+
+.grid-img{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+gap:18px;
+}
+
+.grid-img img{
+width:100%;
+border-radius:15px;
+transition:.3s;
+border:2px solid #1e293b;
+}
+
+.grid-img img:hover{
+transform:scale(1.03);
+border-color:#38bdf8;
+}
+
+/* SOBRE */
+.about{
+display:grid;
+grid-template-columns:420px 1fr;
+gap:60px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:25px;
+border:3px solid #38bdf8;
+}
+
+.about-text h2{
+font-size:55px;
+margin-bottom:25px;
+}
+
+.about-text h2 span{
+color:#38bdf8;
+}
+
+.about-text p{
+font-size:21px;
+line-height:1.9;
+color:#cbd5e1;
+}
+
+.links{
+margin-top:30px;
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.links a{
+padding:14px 24px;
+border-radius:30px;
+background:#38bdf8;
+color:#000;
+text-decoration:none;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#64748b;
+border-top:1px solid #0f172a;
+}
+
+/* RESPONSIVO */
+@media(max-width:980px){
+
+.hero,
+.skills,
+.about{
+grid-template-columns:1fr;
+}
+
+.hero-text h1,
+.title,
+.about-text h2{
+font-size:42px;
+}
+
+.hero-img img{
+width:320px;
+height:320px;
+}
+
+nav ul{
+display:none;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="logo">L</div>
+
+<ul>
+<li><a href="#inicio">Início</a></li>
+<li><a href="#especialidades">Especialidades</a></li>
+<li><a href="#sobre">Sobre</a></li>
+</ul>
+
+<a href="#contato" class="btn-nav">Contato</a>
+</nav>
+
+<section class="hero" id="inicio">
+
+<div class="hero-text">
+<h1>Lucca Matteo <span>| TI & Desenvolvimento</span></h1>
+
+<p>
+Tecnologia que resolve problemas, sistemas que funcionam e ideias que saem do papel.
+Atuo com desenvolvimento web, banco de dados e criação de soluções digitais.
+</p>
+
+<a href="#sobre" class="hero-btn">Conheça meu trabalho</a>
+</div>
+
+<div class="hero-img">
+<img src="WhatsApp Image 2026-03-25 at 20.20.03.jpeg">
+</div>
+
+</section>
+
+<section id="especialidades">
+
+<div class="skills">
+
+<div>
+<h2 class="title">ESPECIALIDADES <span>TÉCNICAS.</span></h2>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<h3>CRUD Escolar em PHP</h3>
+<p>Sistema completo para gestão escolar com integração SQL.</p>
+</div>
+
+<div class="card">
+<h3>Desenvolvimento Web</h3>
+<p>Criação de sites modernos com HTML, CSS, JavaScript e PHP.</p>
+</div>
+
+<div class="card">
+<h3>Banco de Dados</h3>
+<p>SQL, modelagem de tabelas e manipulação de dados.</p>
+</div>
+
+<!-- CARD COM BOTÃO -->
+<div class="card card-click" onclick="abrirGaleria()">
+<h3>Marketing & Social Media</h3>
+
+<p>
+Criação visual no Canva, identidade digital,
+conteúdo estratégico e redes sociais.
+</p>
+
+<span class="ver-btn">Ver Projetos</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="about" id="sobre">
+
+<img src="WhatsApp Image 2026-04-18 at 14.59.55.jpeg">
+
+<div class="about-text">
+
+<h2>MUITO PRAZER, <span>SOU O LUCCA.</span></h2>
+
+<p>
+Sou estudante apaixonado por tecnologia e soluções digitais.
+Também atuo com marketing digital e criação visual.
+</p>
+
+<div class="links" id="contato">
+
+<a href="https://wa.me/5511952100839" target="_blank">WhatsApp</a>
+
+<a href="mailto:lucca456mt@gmail.com">Email</a>
+
+<a href="https://github.com/lucca-matteo" target="_blank">GitHub</a>
+
+<a href="https://www.linkedin.com/in/lucca-matteo" target="_blank">LinkedIn</a>
+
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Lucca Matteo • Portfólio Profissional
+</footer>
+
+<!-- MODAL -->
+
+<div class="modal" id="galeria">
+
+<div class="modal-box">
+
+<span class="fechar" onclick="fecharGaleria()">✕</span>
+
+<h2>Projetos de Marketing</h2>
+
+<div class="grid-img">
+
+<img src="foto1.jpeg">
+<img src="foto 2.jpeg">
+<img src="foto 3.jpeg">
+<img src="foto 4.jpeg">
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+function abrirGaleria(){
+document.getElementById("galeria").style.display="flex";
+}
+
+function fecharGaleria(){
+document.getElementById("galeria").style.display="none";
+}
+</script>
+
+</body>
+</html>
