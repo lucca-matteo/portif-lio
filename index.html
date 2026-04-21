@@ -272,53 +272,6 @@ transform:scale(1.03);
 border-color:#38bdf8;
 }
 
-/* FEEDBACK */
-.feedback{
-padding:80px 8%;
-text-align:center;
-}
-
-.feedback h2{
-font-size:40px;
-margin-bottom:20px;
-}
-
-.stars{
-font-size:35px;
-margin-bottom:20px;
-cursor:pointer;
-}
-
-.stars span{
-color:#334155;
-transition:.2s;
-}
-
-.stars span.active{
-color:#38bdf8;
-}
-
-textarea{
-width:100%;
-max-width:500px;
-height:120px;
-border-radius:15px;
-border:none;
-padding:15px;
-margin-bottom:20px;
-font-size:16px;
-outline:none;
-}
-
-.feedback button{
-padding:14px 30px;
-border:none;
-border-radius:30px;
-background:#38bdf8;
-font-weight:bold;
-cursor:pointer;
-}
-
 /* SOBRE */
 .about{
 display:grid;
@@ -413,18 +366,26 @@ display:none;
 </nav>
 
 <section class="hero" id="inicio">
+
 <div class="hero-text">
 <h1>Lucca Matteo <span>| TI & Desenvolvimento</span></h1>
-<p>Tecnologia que resolve problemas, sistemas que funcionam e ideias que saem do papel.</p>
+
+<p>
+Tecnologia que resolve problemas, sistemas que funcionam e ideias que saem do papel.
+Atuo com desenvolvimento web, banco de dados e criação de soluções digitais.
+</p>
+
 <a href="#sobre" class="hero-btn">Conheça meu trabalho</a>
 </div>
 
 <div class="hero-img">
 <img src="WhatsApp Image 2026-03-25 at 20.20.03.jpeg">
 </div>
+
 </section>
 
 <section id="especialidades">
+
 <div class="skills">
 
 <div>
@@ -432,46 +393,80 @@ display:none;
 </div>
 
 <div class="cards">
-<div class="card"><h3>CRUD Escolar</h3></div>
-<div class="card"><h3>Desenvolvimento Web</h3></div>
-<div class="card"><h3>Banco de Dados</h3></div>
+
+<div class="card">
+<h3>CRUD Escolar em PHP</h3>
+<p>Sistema completo para gestão escolar com integração SQL.</p>
+</div>
+
+<div class="card">
+<h3>Desenvolvimento Web</h3>
+<p>Criação de sites modernos com HTML, CSS, JavaScript e PHP.</p>
+</div>
+
+<div class="card">
+<h3>Banco de Dados</h3>
+<p>SQL, modelagem de tabelas e manipulação de dados.</p>
+</div>
 
 <div class="card card-click" onclick="abrirGaleria()">
 <h3>Marketing & Social Media</h3>
+<p>Criação visual no Canva, identidade digital, conteúdo estratégico e redes sociais.</p>
 <span class="ver-btn">Ver Projetos</span>
 </div>
+
 </div>
 
+</div>
+
+</section>
+
+<section class="about" id="sobre">
+
+<img src="WhatsApp Image 2026-04-18 at 14.59.55.jpeg">
+
+<div class="about-text">
+
+<h2>MUITO PRAZER, <span>SOU O LUCCA.</span></h2>
+
+<p>
+Sou estudante apaixonado por tecnologia e soluções digitais.
+Também atuo com marketing digital e criação visual.
+</p>
+
+<div class="links" id="contato">
+
+<a href="https://wa.me/5511952100839" target="_blank">WhatsApp</a>
+<a href="mailto:lucca456mt@gmail.com">Email</a>
+<a href="https://github.com/lucca-matteo" target="_blank">GitHub</a>
+<a href="https://www.linkedin.com/in/lucca-matteo" target="_blank">LinkedIn</a>
+
+</div>
 </div>
 </section>
 
-<!-- FEEDBACK -->
-<section class="feedback">
-<h2>Deixe seu feedback ⭐</h2>
-
-<div class="stars" id="stars">
-<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-</div>
-
-<textarea id="mensagem" placeholder="Escreva seu feedback..."></textarea>
-
-<button onclick="enviarFeedback()">Enviar no WhatsApp</button>
-</section>
-
-<footer>© 2026 Lucca Matteo</footer>
+<footer>
+© 2026 Lucca Matteo • Portfólio Profissional
+</footer>
 
 <!-- MODAL -->
 <div class="modal" id="galeria">
+
 <div class="modal-box">
+
 <span class="fechar" onclick="fecharGaleria()">✕</span>
-<h2>Projetos</h2>
+
+<h2>Projetos de Marketing</h2>
+
 <div class="grid-img">
 <img src="foto1.jpeg">
-<img src="foto-2.jpeg">
-<img src="foto-3.jpeg">
-<img src="foto-4.jpeg">
+<img src="foto 2.jpeg">
+<img src="foto 3.jpeg">
+<img src="foto 4.jpeg">
 </div>
+
 </div>
+
 </div>
 
 <script>
@@ -487,33 +482,11 @@ modal.classList.remove("active");
 document.body.style.overflow = "auto";
 }
 
-modal.addEventListener("click", (e)=>{
-if(e.target === modal) fecharGaleria();
-});
-
-let nota = 0;
-const estrelas = document.querySelectorAll("#stars span");
-
-estrelas.forEach((star, i)=>{
-star.addEventListener("click", ()=>{
-nota = i+1;
-estrelas.forEach((s, j)=>{
-s.classList.toggle("active", j < nota);
-});
-});
-});
-
-function enviarFeedback(){
-let msg = document.getElementById("mensagem").value;
-
-if(nota === 0){
-alert("Escolha uma nota");
-return;
+modal.addEventListener("click", (e) => {
+if(e.target === modal){
+fecharGaleria();
 }
-
-let texto = `Feedback:%0A⭐ ${nota}/5%0A${msg}`;
-window.open(`https://wa.me/5511952100839?text=${texto}`);
-}
+});
 </script>
 
 </body>
