@@ -178,7 +178,6 @@ line-height:1.8;
 font-size:18px;
 }
 
-/* CARD CLICAVEL */
 .card-click{
 cursor:pointer;
 }
@@ -196,7 +195,7 @@ font-size:14px;
 
 /* MODAL */
 .modal{
-display:none;
+display:flex;
 position:fixed;
 top:0;
 left:0;
@@ -207,6 +206,18 @@ justify-content:center;
 align-items:center;
 z-index:9999;
 padding:20px;
+
+opacity:0;
+pointer-events:none;
+transition:opacity .3s ease;
+
+overflow-y:auto;
+-webkit-overflow-scrolling:touch;
+}
+
+.modal.active{
+opacity:1;
+pointer-events:auto;
 }
 
 .modal-box{
@@ -216,6 +227,19 @@ border-radius:20px;
 max-width:1100px;
 width:100%;
 border:1px solid #38bdf8;
+
+transform:scale(.9) translateY(40px);
+opacity:0;
+transition:.35s ease;
+
+max-height:90vh;
+overflow-y:auto;
+-webkit-overflow-scrolling:touch;
+}
+
+.modal.active .modal-box{
+transform:scale(1) translateY(0);
+opacity:1;
 }
 
 .fechar{
@@ -323,7 +347,6 @@ height:320px;
 nav ul{
 display:none;
 }
-
 }
 </style>
 </head>
@@ -386,15 +409,9 @@ Atuo com desenvolvimento web, banco de dados e criação de soluções digitais.
 <p>SQL, modelagem de tabelas e manipulação de dados.</p>
 </div>
 
-<!-- CARD COM BOTÃO -->
 <div class="card card-click" onclick="abrirGaleria()">
 <h3>Marketing & Social Media</h3>
-
-<p>
-Criação visual no Canva, identidade digital,
-conteúdo estratégico e redes sociais.
-</p>
-
+<p>Criação visual no Canva, identidade digital, conteúdo estratégico e redes sociais.</p>
 <span class="ver-btn">Ver Projetos</span>
 </div>
 
@@ -420,11 +437,8 @@ Também atuo com marketing digital e criação visual.
 <div class="links" id="contato">
 
 <a href="https://wa.me/5511952100839" target="_blank">WhatsApp</a>
-
 <a href="mailto:lucca456mt@gmail.com">Email</a>
-
 <a href="https://github.com/lucca-matteo" target="_blank">GitHub</a>
-
 <a href="https://www.linkedin.com/in/lucca-matteo" target="_blank">LinkedIn</a>
 
 </div>
@@ -436,7 +450,6 @@ Também atuo com marketing digital e criação visual.
 </footer>
 
 <!-- MODAL -->
-
 <div class="modal" id="galeria">
 
 <div class="modal-box">
@@ -446,12 +459,10 @@ Também atuo com marketing digital e criação visual.
 <h2>Projetos de Marketing</h2>
 
 <div class="grid-img">
-
 <img src="foto1.jpeg">
 <img src="foto 2.jpeg">
 <img src="foto 3.jpeg">
 <img src="foto 4.jpeg">
-
 </div>
 
 </div>
@@ -459,13 +470,23 @@ Também atuo com marketing digital e criação visual.
 </div>
 
 <script>
+const modal = document.getElementById("galeria");
+
 function abrirGaleria(){
-document.getElementById("galeria").style.display="flex";
+modal.classList.add("active");
+document.body.style.overflow = "hidden";
 }
 
 function fecharGaleria(){
-document.getElementById("galeria").style.display="none";
+modal.classList.remove("active");
+document.body.style.overflow = "auto";
 }
+
+modal.addEventListener("click", (e) => {
+if(e.target === modal){
+fecharGaleria();
+}
+});
 </script>
 
 </body>
